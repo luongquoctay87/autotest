@@ -1,0 +1,31 @@
+{
+  "name": "automation-testing",
+  "version": "1.0.0",
+  "description": "Automation Testing Tool is integrated Cucumber Testing Framework and Selenium Framework run on Node.js Platform",
+  "main": "index.js",
+  "directories": {
+    "test": "cucumber"
+  },
+  "dependencies": {
+    "sleep": "^6.2.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "chromedriver": "^83.0.0",
+    "cucumber": "^6.0.5",
+    "dotenv": "^8.2.0",
+    "multiple-cucumber-html-reporter": "^1.16.2",
+    "selenium-webdriver": "^4.0.0-alpha.7"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/cucumber-js ./cucumber/features --require ./cucumber/features/steps --require ./cucumber/features/support --world-parameters {\\\"browserName\\\":\\\"chrome\\\"} --format json:tests/results/chrome.json",
+    "follow-step": "./node_modules/.bin/cucumber-js cucumber/features/steps/mail-server/mail_server.feature cucumber/features/steps/users/user.feature cucumber/features/steps/setting-mail-list/setting_mail_list.feature cucumber/features/steps/teams/teams.feature --world-parameters {\\\"browserName\\\":\\\"chrome\\\"} --format json:tests/results/chrome.json",
+    "setting-fetch-email": "./node_modules/.bin/cucumber-js cucumber/features/steps/setting/setting_fetch_mail.feature --world-parameters {\\\"browserName\\\":\\\"chrome\\\"} --format json:tests/results/chrome.json",
+    "delete-setting-fetch-email":"./node_modules/.bin/cucumber-js cucumber/features/steps/setting/delete_setting_fetch_mail.feature --world-parameters {\\\"browserName\\\":\\\"chrome\\\"} --format json:tests/results/chrome.json",
+    "report": "node ./tests/generate/report"
+  },
+  "keywords": [],
+  "author": "NAL",
+  "license": "ISC"
+}
